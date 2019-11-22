@@ -23,19 +23,23 @@ body {
 }
 
 .calcBtnContainer {
+    padding: 20px;
     text-align: center;
-    height: 25px;
+    height: 45px;
 }
 
-.calcBtn {
+#calcBtn {
     text-align: center;
     padding: 20px;
-    width: 50px;
+    width: 100px;
     height: 25px;
+    line-height: 12.5px;
+    font-weight: bold;
+    background-color: rgb(202, 255, 122);
 }
 
 .calcBtn:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(137, 87, 255, 0.2), 0 6px 20px 0 rgba(137, 87, 255, 0.2);
 }
 
 .money {
@@ -48,6 +52,7 @@ body {
 .moneyType {
     margin: 10px;
     padding: 20px;
+    width: 150px;
     text-align: center;
     border: 1px solid gray;
 }
