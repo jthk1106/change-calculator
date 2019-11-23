@@ -20,6 +20,13 @@ body {
 .inputItems {
     margin: 10px;
     text-align: center;
+    font-size: 20px;
+}
+
+.inputElement {
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
 }
 
 .calcBtnContainer {
@@ -51,8 +58,17 @@ body {
 
 .moneyType {
     margin: 10px;
-    padding: 20px;
+    padding: 5px;
     width: 150px;
     text-align: center;
     border: 1px solid gray;
+}
+
+.moneyFontSize {
+    font-size: 20px;
+}
+
+.totalChange {
+    text-align: center;
+    font-size: 20px;
 }
