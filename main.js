@@ -35,20 +35,6 @@ function calculateChange(d, r) {
     var dimes = 0;
     var nickels = 0;
     var pennies = 0;
-    
-
-    // function checkChange(n) {
-    //     console.log('checkChange()... n: ', n)
-    //     if(isNaN(n)) {
-    //         return '00';
-    //     } else if(n < 10) {
-    //         return n + 0;
-    //     } else {
-    //         return n;
-    //     }
-    //     // return (n < 10) ? (n + 0) : n;
-    // };
-
 
     console.log(`changeCents before quarter check: ${changeCents}`)
     // QUARTERS
@@ -60,17 +46,6 @@ function calculateChange(d, r) {
         changeCents = changeCents%25;
     };
     console.log(`changeCents after quarter check: ${changeCents}`)
-    // if(isNaN(changeCents)) {
-    //     console.log('in quarters (1)')
-    //     quarters = 0;
-    // } else if(changeCents%25 === 0) {
-    //     console.log('in quarters (2)')
-    //     quarters = changeCents/25;
-    // } else {
-    //     console.log('in quarters (3)')
-    //     quarters = Math.floor(changeCents/25);
-    //     changeCents = changeCents%25;
-    // };
 
     // DIMES
     if(changeCents%10 === 0) {
@@ -81,14 +56,6 @@ function calculateChange(d, r) {
         changeCents = changeCents%10;
     };
     console.log(`changeCents after dime check: ${changeCents}`)
-    // if(isNaN(changeCents)) {
-    //     dimes = 0;
-    // } else if(changeCents%10 === 0) {
-    //     dimes = changeCents/10;
-    // } else {
-    //     dimes = Math.floor(changeCents/10);
-    //     changeCents = changeCents%10;
-    // };
 
     // NICKELS
     if(changeCents%5 === 0) {
@@ -99,28 +66,14 @@ function calculateChange(d, r) {
         changeCents = changeCents%5;
     };
     console.log(`changeCents after nickel check: ${changeCents}`)
-    // if(isNaN(changeCents)) {
-    //     nickels = 0;
-    // } else if(changeCents%5 === 0) {
-    //     nickels = changeCents/5;
-    // } else {
-    //     nickels = Math.floor(changeCents/5);
-    //     changeCents = changeCents%5;
-    // };
 
     // PENNIES
     if(changeCents < 5) {
         pennies = changeCents;
     }
     console.log(`pennies: ${pennies}`)
-    // if(isNaN(changeCents)) {
-    //     pennies = 0;
-    // } else {
-    //     pennies = changeCents;
-    //     console.log(`checking pennies: ${pennies}`)
-    // };
 
-    document.getElementById('dollars-output').innerHTML = dueDollars;
+    document.getElementById('dollars-output').innerText = dueDollars;
     document.getElementById('quarters-output').innerHTML = quarters;
     document.getElementById('dimes-output').innerHTML = dimes;
     document.getElementById('nickels-output').innerHTML = nickels;
