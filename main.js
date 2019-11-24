@@ -30,6 +30,7 @@ function calculateChange(d, r) {
 
     var changeCents = dueCents;
     var finalTotal = dueDollars + '.' + dueCents;
+    console.log(`finalTotal: ${finalTotal}`)
     var quarters = 0;
     var dimes = 0;
     var nickels = 0;
@@ -53,6 +54,7 @@ function calculateChange(d, r) {
     // QUARTERS
     if(changeCents%25 === 0) {
         quarters = changeCents/25;
+        changeCents = 0;
     } else {
         quarters = Math.floor(changeCents/25);
         changeCents = changeCents%25;
@@ -73,6 +75,7 @@ function calculateChange(d, r) {
     // DIMES
     if(changeCents%10 === 0) {
         dimes = changeCents/10;
+        changeCents = 0;
     } else {
         dimes = Math.floor(changeCents/10);
         changeCents = changeCents%10;
@@ -90,6 +93,7 @@ function calculateChange(d, r) {
     // NICKELS
     if(changeCents%5 === 0) {
         nickels = changeCents/5;
+        changeCents = 0;
     } else {
         nickels = Math.floor(changeCents/5);
         changeCents = changeCents%5;
@@ -116,12 +120,12 @@ function calculateChange(d, r) {
     //     console.log(`checking pennies: ${pennies}`)
     // };
 
-    document.getElementById('dollars-output').textContent = dueDollars;
-    document.getElementById('quarters-output').textContent = quarters;
-    document.getElementById('dimes-output').textContent = dimes;
-    document.getElementById('nickels-output').textContent = nickels;
-    document.getElementById('pennies-output').textContent = pennies;
-    document.getElementById('totalDue').textContent = finalTotal;
+    document.getElementById('dollars-output').innerHTML = dueDollars;
+    document.getElementById('quarters-output').innerHTML = quarters;
+    document.getElementById('dimes-output').innerHTML = dimes;
+    document.getElementById('nickels-output').innerHTML = nickels;
+    document.getElementById('pennies-output').innerHTML = pennies;
+    document.getElementById('totalDue').innerHTML = finalTotal;
 
     console.log('dueDollars: ', isNaN(dueDollars))
     console.log('quarters: ', isNaN(quarters))
