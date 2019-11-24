@@ -8,48 +8,50 @@
   <body>
     <!-- Write your markup here -->
     
-    <h1 id='title'>change calculator</h1>
+    <h1 id='title'>Change Calculator</h1>
 
     <div class="inputs">
       <div class="inputItems">
         <p>amount due</p>
-        <input class="inputElement" id="dueDollars" type="text" value="0" onclick="this.value=' '">.</input>
-        <input class="inputElement" id="dueCents" type="text" value="00" onclick="this.value=' '">
+        <!-- <input class="inputElement" id="dueDollars" type="text" value="0" onclick="this.value=' '">.</input>
+        <input class="inputElement" id="dueCents" type="text" value="00" onclick="this.value=' '"> -->
+        <input class="inputElement" id="amount-due" type="text" value="0.00" onclick="this.value=' '">
       </div>
       <div class="inputItems">
         <p>amount received</p>
-        <input class="inputElement" id="receivedDollars" type="text" value="0" onclick="this.value=' '">.</input>
-        <input class="inputElement" id="receivedCents" type="text" value="00" onclick="this.value=' '">
+        <!-- <input class="inputElement" id="receivedDollars" type="text" value="0" onclick="this.value=' '">.</input>
+        <input class="inputElement" id="receivedCents" type="text" value="00" onclick="this.value=' '"> -->
+        <input class="inputElement" id="amount-received" type="text" value="0.00" onclick="this.value=' '">
       </div>
     </div>
 
     <div class="calcBtnContainer">
-      <button id="calcBtn">b o o m</button>
+      <button id="calculate-change">b o o m</button>
     </div>
 
     <div class="money">
       <div class="moneyType">
         <div>
           <h2>dollars</h2>
-          <p class="moneyFontSize" id="dollars">0</p>
+          <p class="moneyFontSize" id="dollars-output">0</p>
         </div> 
       </div>
       <div class="moneyType">
         <div>
           <h2>quarters</h2>
-          <p class="moneyFontSize" id="quarters">0</p>
+          <p class="moneyFontSize" id="quarters-output">0</p>
         </div>
         <div>
           <h2>dimes</h2>
-          <p class="moneyFontSize" id="dimes">0</p>
+          <p class="moneyFontSize" id="dimes-output">0</p>
         </div>
         <div>
           <h2>nickels</h2>
-          <p class="moneyFontSize" id="nickels">0</p>
+          <p class="moneyFontSize" id="nickels-output">0</p>
         </div>
         <div>
           <h2>pennies</h2>
-          <p class="moneyFontSize" id="pennies">0</p>
+          <p class="moneyFontSize" id="pennies-output">0</p>
         </div>
       </div>
     </div>

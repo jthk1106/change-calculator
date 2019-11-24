@@ -1,56 +1,91 @@
 // Write your JavaScript here
-var boomBtn = document.getElementById('calcBtn');
 
+// The Button
+var boomBtn = document.getElementById('calculate-change');
 boomBtn.addEventListener('click', () => {
     handleBoomBtn();
 });
 
+// The Button Handler
 function handleBoomBtn() {
-    var dueDollars = document.getElementById('dueDollars').value;
-    var dueCents = document.getElementById('dueCents').value;
-    var receivedDollars = document.getElementById('receivedDollars').value;
-    var receivedCents = document.getElementById('receivedCents').value;
-    calculateChange(dueDollars, dueCents, receivedDollars, receivedCents);
+    // var dueDollars = document.getElementById('dueDollars').value;
+    // var dueCents = document.getElementById('dueCents').value;
+    // var receivedDollars = document.getElementById('receivedDollars').value;
+    // var receivedCents = document.getElementById('receivedCents').value;
+    // calculateChange(dueDollars, dueCents, receivedDollars, receivedCents);
+    var due = document.getElementById('amount-due').value;
+    var received = document.getElementById('amount-received').value;
+
+    calculateChange(due, received)
 };
 
-function calculateChange(dollarsDue, centsDue, dollarsReceived, centsReceived) {
+// The Button Handler Work
+function calculateChange(d, r) {
+    var change = (r - d).toFixed(2);
+    console.log('change: ',change)
 
-    // var change = r - d
-    var change = '';
-    var changeDollars = (dollarsDue === 0) ? return dollarsReceived :  return dollarsDue - dollarsReceived
-    var changeCents = centsDue - centsReceived
-    // var changeDollars = Number(change.toString().split(".")[0]);
-    // var changeCents = Number(change.toString().split(".")[1]);
-    var dollars = 0;
+    var dueDollars = Number(change.toString().split(".")[0]);
+    var dueCents = Number(change.toString().split(".")[1])
+    console.log('dueDollars: ', dueDollars, ' dueCents: ', dueCents); 
+
+    var changeCents = dueCents;
+    var finalTotal = dueDollars + '.' + dueCents;
     var quarters = 0;
     var dimes = 0;
     var nickels = 0;
     var pennies = 0;
+    
 
-    console.log('changeDollars: ', changeDollars, ' changeCents: ', changeCents);   
+    // function checkChange(n) {
+    //     console.log('checkChange()... n: ', n)
+    //     if(isNaN(n)) {
+    //         return '00';
+    //     } else if(n < 10) {
+    //         return n + 0;
+    //     } else {
+    //         return n;
+    //     }
+    //     // return (n < 10) ? (n + 0) : n;
+    // };
 
-    // DOLLARS
-    dollars = changeDollars;
 
+    console.log(`changeCents before quarter check: ${changeCents}`)
     // QUARTERS
     if(changeCents%25 === 0) {
         quarters = changeCents/25;
-        console.log('quarters: ', quarters)
     } else {
         quarters = Math.floor(changeCents/25);
-        console.log('quartersRemainder: ', quarters)
         changeCents = changeCents%25;
     };
+    console.log(`changeCents after quarter check: ${changeCents}`)
+    // if(isNaN(changeCents)) {
+    //     console.log('in quarters (1)')
+    //     quarters = 0;
+    // } else if(changeCents%25 === 0) {
+    //     console.log('in quarters (2)')
+    //     quarters = changeCents/25;
+    // } else {
+    //     console.log('in quarters (3)')
+    //     quarters = Math.floor(changeCents/25);
+    //     changeCents = changeCents%25;
+    // };
 
     // DIMES
     if(changeCents%10 === 0) {
         dimes = changeCents/10;
-        console.log('dimes: ', dimes)
     } else {
         dimes = Math.floor(changeCents/10);
-        console.log('dimesRemainder: ', dimes)
         changeCents = changeCents%10;
     };
+    console.log(`changeCents after dime check: ${changeCents}`)
+    // if(isNaN(changeCents)) {
+    //     dimes = 0;
+    // } else if(changeCents%10 === 0) {
+    //     dimes = changeCents/10;
+    // } else {
+    //     dimes = Math.floor(changeCents/10);
+    //     changeCents = changeCents%10;
+    // };
 
     // NICKELS
     if(changeCents%5 === 0) {
@@ -59,23 +94,40 @@ function calculateChange(dollarsDue, centsDue, dollarsReceived, centsReceived) {
         nickels = Math.floor(changeCents/5);
         changeCents = changeCents%5;
     };
+    console.log(`changeCents after nickel check: ${changeCents}`)
+    // if(isNaN(changeCents)) {
+    //     nickels = 0;
+    // } else if(changeCents%5 === 0) {
+    //     nickels = changeCents/5;
+    // } else {
+    //     nickels = Math.floor(changeCents/5);
+    //     changeCents = changeCents%5;
+    // };
 
     // PENNIES
-    pennies = changeCents;
+    if(changeCents < 5) {
+        pennies = changeCents;
+    }
+    console.log(`pennies: ${pennies}`)
+    // if(isNaN(changeCents)) {
+    //     pennies = 0;
+    // } else {
+    //     pennies = changeCents;
+    //     console.log(`checking pennies: ${pennies}`)
+    // };
 
-    document.getElementById('dollars').textContent = dollars;
-    document.getElementById('quarters').textContent = quarters;
-    document.getElementById('dimes').textContent = dimes;
-    document.getElementById('nickels').textContent = nickels;
-    document.getElementById('pennies').textContent = pennies;
-    document.getElementById('totalDue').textContent = change;
+    document.getElementById('dollars-output').textContent = dueDollars;
+    document.getElementById('quarters-output').textContent = quarters;
+    document.getElementById('dimes-output').textContent = dimes;
+    document.getElementById('nickels-output').textContent = nickels;
+    document.getElementById('pennies-output').textContent = pennies;
+    document.getElementById('totalDue').textContent = finalTotal;
 
-    // var roundDownChange = change%1
-    // var cents = Number(roundDownChange.toFixed(2))
- 
-    // >> operator for 'divisor' ???
-    // %.25 > %.10 > %.05 > %.01 
-
-    // console.log(`change: ${change} roundDownChange: ${roundDownChange} math: ${cents}`)
+    console.log('dueDollars: ', isNaN(dueDollars))
+    console.log('quarters: ', isNaN(quarters))
+    console.log('dimes: ', isNaN(dimes))
+    console.log('nickels: ', isNaN(nickels))
+    console.log('pennies: ', isNaN(pennies))
+    console.log('finalTotal: ', isNaN(finalTotal))
 
 };
